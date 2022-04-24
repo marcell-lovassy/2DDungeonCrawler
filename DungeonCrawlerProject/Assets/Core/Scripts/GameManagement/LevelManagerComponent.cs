@@ -4,6 +4,7 @@ using UniRx;
 using System;
 using Zenject;
 using Assets.Core.UI;
+using UnityEngine.UI;
 
 namespace Assets.Core.GameManagement
 {
@@ -12,6 +13,10 @@ namespace Assets.Core.GameManagement
         [Header("Level Loading UI Elements")]
         [SerializeField]
         TMP_Text pressButtonText;
+        [SerializeField]
+        Slider loadingSlider;
+        [SerializeField]
+        TMP_Text loadingText;
 
         [SerializeField]
         Animator loadingAnimator;
@@ -27,9 +32,10 @@ namespace Assets.Core.GameManagement
         private void Awake()
         {
             pressButtonText.gameObject.SetActive(false);
-            levelManager.SetGameFinishedAnimator(gameFinishedAnimator);
+            //levelManager.SetGameFinishedAnimator(gameFinishedAnimator);
             levelManager.LoadingStateChanged.Subscribe(OnLoadingStateChnaged).AddTo(this);
             levelManager.SetAnimationFinisherComponent(loadingAnimationFinisher);
+            levelManager.SetupLoadingSlider(loadingSlider, loadingText);
         }
 
        

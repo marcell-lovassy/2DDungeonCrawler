@@ -10,5 +10,6 @@ Used packages from git:
 
 Extenject: https://github.com/Mathijs-Bakker/Extenject
 Add to project from git via Package Manager: https://github.com/Mathijs-Bakker/Extenject.git?path=UnityProject/Assets/Plugins/Zenject/Source
+
 UniRx: https://github.com/neuecc/UniRx
 Add to project from git via Package Manager: https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts

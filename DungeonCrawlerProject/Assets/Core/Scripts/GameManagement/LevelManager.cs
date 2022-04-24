@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Core.UI;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Assets.Core.GameManagement
 {
@@ -35,12 +37,16 @@ namespace Assets.Core.GameManagement
             }
         }
 
+        public bool ButtonPressed = false;
+
         private Subject<bool> levelLoadingFinishedObservable = new Subject<bool>();
         private Subject<string> nextLevelStarted = new Subject<string>();
         private Subject<LoadingState> loadingStateChanged = new Subject<LoadingState>();
         private Animator gameFinishedAnimator;
         private LoadingAnimationFinisher loadingFinisher;
         private Stack<LoadingState> LoadingStateStack = new Stack<LoadingState>();
+        private Slider loadingSlider;
+        private TMP_Text loadingText;
 
         public void InitializeGameState()
         {
@@ -58,6 +64,12 @@ namespace Assets.Core.GameManagement
         internal void SetAnimationFinisherComponent(LoadingAnimationFinisher animationFinisher)
         {
             loadingFinisher = animationFinisher;
+        }
+
+        internal void SetupLoadingSlider(Slider s, TMP_Text text)
+        {
+            loadingSlider = s;
+            loadingText = text;
         }
 
         internal IEnumerator LoadGame()
@@ -88,29 +100,32 @@ namespace Assets.Core.GameManagement
             bool canActivateNextScene = true;
 
             HandleLoadingState(LoadingState.LoadingStarted);
-            yield return null;
 
             AsyncOperation loading = SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
             loading.allowSceneActivation = false;
-            Debug.Log($"Progress {loading.progress}");
+            UpdateLoadingSlider(0);
+            yield return null;
+
             while (!loading.isDone)
             {
-                LoadingProggress = loading.progress;
-                if (loading.progress >= 0.9f)
+                SetLoadingSlider(loading.progress);
+                if (loading.progress >= 0.9f && loadingSlider.value == 100)
                 {
+
                     if (!loadingFinisher.Finished)
                     {
                         HandleLoadingState(LoadingState.LoadingFinished);
                     }
                     else
                     {
-                        if (requiresUserInput)
+                        if (requiresUserInput && loadingFinisher.Finished)
                         {
                             canActivateNextScene = false;
                             HandleLoadingState(LoadingState.RequireUserInput);
-                            if (Input.GetKeyDown(KeyCode.Space))
+                            if (ButtonPressed)
                             {
                                 canActivateNextScene = true;
+                                ButtonPressed = false;
                             }
                         }
 
@@ -121,18 +136,16 @@ namespace Assets.Core.GameManagement
                         }
                     }
                 }
-                else
-                {
-                    Debug.Log($"Progress {loading.progress * 100}%");
-                }
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
+
+
             }
             LevelIsLoading = false;
         }
 
         internal IEnumerator LoadMainMenu()
         {
-            return LoadLevel(1, false);
+            return LoadLevel(1, true);
         }
 
         public IEnumerator LoadNextLevel()
@@ -158,6 +171,28 @@ namespace Assets.Core.GameManagement
             ReachedLevelIndex = 0;
             yield return null;
             gameFinishedAnimator.SetTrigger("GameFinished");
+        }
+
+        private void UpdateLoadingSlider(float progress)
+        {
+            loadingSlider.value = progress >= 100 ? 100 : progress;
+            loadingText.text = $"Loading... {loadingSlider.value}%";
+        }
+
+        /// <summary>
+        /// Make loading visible in case of too fast loading, to make the animation smooth
+        /// </summary>
+        /// <param name="progress"></param>
+        private void SetLoadingSlider(float progress)
+        {
+            if (loadingSlider.value < 30 || loadingSlider.value >= 90)
+            {
+                UpdateLoadingSlider(loadingSlider.value + UnityEngine.Random.Range(1, 3));
+            }
+            else
+            {
+                UpdateLoadingSlider(progress * 100);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 # 2DDungeonCrawler
-2D dungeon crawler game, based on Darkest Dungeon mechanics
+2D dungeon crawler game, based on Darkest Dungeon mechanics made with Unity
+
+### Unity version: https://unity3d.com/unity/whats-new/2020.3.33
 
 ### URP documentation
 

@@ -1,3 +1,4 @@
+using Assets.Core.Audio;
 using System;
 using UnityEngine;
 using Zenject;
@@ -9,6 +10,8 @@ namespace Assets.Core.GameManagement
         [Header("Manager Objects")]
         [SerializeField]
         private LevelManagerComponent LevelManager;
+        [SerializeField]
+        private AudioManagerComponent AudioManager;
 
         public static GameManagerComponent Instance;
 
@@ -47,9 +50,15 @@ namespace Assets.Core.GameManagement
         internal void LoadMenu()
         {
             LevelManager.LoadMenu();
+            PlaySound("Theme");
         }
 
         #endregion
+
+        void PlaySound(string soundName)
+        {
+            AudioManager.Play(soundName);
+        }
     }
 }
 

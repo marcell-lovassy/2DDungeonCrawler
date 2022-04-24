@@ -29,6 +29,8 @@ namespace Assets.Core.GameManagement
         [Inject]
         private LevelManager levelManager;
 
+        private LoadingState loadingState;
+
         private void Awake()
         {
             pressButtonText.gameObject.SetActive(false);
@@ -38,7 +40,13 @@ namespace Assets.Core.GameManagement
             levelManager.SetupLoadingSlider(loadingSlider, loadingText);
         }
 
-       
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && loadingState == LoadingState.RequireUserInput)
+            {
+                levelManager.ButtonPressed = true;
+            }
+        }
 
         internal void LoadMenu()
         {
@@ -68,6 +76,7 @@ namespace Assets.Core.GameManagement
         private void OnLoadingStateChnaged(LoadingState state)
         {
             loadingAnimator.SetTrigger(state.ToString());
+            loadingState = state;
         }
     }
 }

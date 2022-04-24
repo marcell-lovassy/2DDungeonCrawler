@@ -37,6 +37,8 @@ namespace Assets.Core.GameManagement
             }
         }
 
+        public bool ButtonPressed = false;
+
         private Subject<bool> levelLoadingFinishedObservable = new Subject<bool>();
         private Subject<string> nextLevelStarted = new Subject<string>();
         private Subject<LoadingState> loadingStateChanged = new Subject<LoadingState>();
@@ -116,13 +118,14 @@ namespace Assets.Core.GameManagement
                     }
                     else
                     {
-                        if (requiresUserInput)
+                        if (requiresUserInput && loadingFinisher.Finished)
                         {
                             canActivateNextScene = false;
                             HandleLoadingState(LoadingState.RequireUserInput);
-                            if (Input.GetKeyDown(KeyCode.Space))
+                            if (ButtonPressed)
                             {
                                 canActivateNextScene = true;
+                                ButtonPressed = false;
                             }
                         }
 
@@ -134,13 +137,15 @@ namespace Assets.Core.GameManagement
                     }
                 }
                 yield return new WaitForSeconds(0.1f);
+
+
             }
             LevelIsLoading = false;
         }
 
         internal IEnumerator LoadMainMenu()
         {
-            return LoadLevel(1, false);
+            return LoadLevel(1, true);
         }
 
         public IEnumerator LoadNextLevel()

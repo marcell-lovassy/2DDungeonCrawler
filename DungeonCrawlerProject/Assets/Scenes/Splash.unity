@@ -860,6 +860,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1872702781746497352, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872702781746497352, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4745851797682290511, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.1

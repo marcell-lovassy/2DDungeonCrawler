@@ -932,5 +932,9 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 9051288389280815074, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}

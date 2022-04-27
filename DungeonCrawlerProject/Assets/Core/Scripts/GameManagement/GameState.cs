@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Game.GameState
+namespace Assets.Core.GameManagement
 {
     public abstract class GameState : MonoBehaviour, IGameState
     {

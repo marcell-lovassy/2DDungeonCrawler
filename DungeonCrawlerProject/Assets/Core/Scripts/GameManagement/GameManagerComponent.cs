@@ -60,6 +60,11 @@ namespace Assets.Core.GameManagement
         {
             AudioManager.Play(soundName);
         }
+
+        private void OnLevelWasLoaded(int level)
+        {
+            var gamestate = FindObjectOfType<GameState>();
+        }
     }
 }
 

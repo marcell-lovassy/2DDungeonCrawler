@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 563939304575133393}
   - component: {fileID: 563939304575133398}
   m_Layer: 0
-  m_Name: GlobalMonoInstaller
+  m_Name: GameInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66643e56b4b2f04ab2adfe62f4532cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerObject: {fileID: 6241957174260063098, guid: 5ed1fdf38c9debb40aed45555517c222, type: 3}

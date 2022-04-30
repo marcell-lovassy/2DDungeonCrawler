@@ -39,6 +39,11 @@ namespace Assets.Core.Audio
             source.Play();
         }
 
+        public void Stop()
+        {
+            source.Stop();
+        }
+
         public void SetupSound(AudioSource s)
         {
             source = s;
@@ -52,6 +57,11 @@ namespace Assets.Core.Audio
         public string GetSoundName()
         {
             return name;
+        }
+
+        public bool IsPlaying()
+        {
+            return source.isPlaying;
         }
     }
 }

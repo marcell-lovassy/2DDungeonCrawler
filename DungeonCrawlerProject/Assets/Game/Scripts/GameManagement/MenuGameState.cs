@@ -9,5 +9,11 @@ namespace Assets.Game.GameManagement
 {
     internal class MenuGameState : GameState
     {
+        public override string StateMusic => "Theme";
+
+        public override IGameState SetupGameState()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

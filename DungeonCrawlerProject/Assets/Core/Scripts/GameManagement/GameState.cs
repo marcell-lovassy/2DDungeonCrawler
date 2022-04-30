@@ -9,9 +9,8 @@ namespace Assets.Core.GameManagement
 {
     public abstract class GameState : MonoBehaviour, IGameState
     {
-        public IGameState SetupGameState()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract string StateMusic { get; }
+
+        public abstract IGameState SetupGameState();
     }
 }

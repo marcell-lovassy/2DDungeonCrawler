@@ -9,6 +9,5 @@ namespace Assets.Core.GameManagement
     public interface IGameState
     {
         IGameState SetupGameState();
-
     }
 }

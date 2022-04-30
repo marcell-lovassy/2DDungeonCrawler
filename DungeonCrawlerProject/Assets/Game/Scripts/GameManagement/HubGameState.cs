@@ -9,6 +9,11 @@ namespace Assets.Game.GameManagement
 {
     internal class HubGameState : GameState
     {
+        public override string StateMusic => throw new NotImplementedException();
 
+        public override IGameState SetupGameState()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

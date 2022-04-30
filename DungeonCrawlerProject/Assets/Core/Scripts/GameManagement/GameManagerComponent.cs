@@ -16,6 +16,8 @@ namespace Assets.Core.GameManagement
 
         public static GameManagerComponent Instance;
 
+        private Sound activeMusic = null;
+
         private void Awake()
         {
             if (Instance == null)
@@ -28,7 +30,16 @@ namespace Assets.Core.GameManagement
             }
 
             LevelManager.Init();
-            DontDestroyOnLoad(Instance);
+            
+            //no need to add DontDestroyOnLoad() here,
+            //GameManager is on the ProjectContext (Zenject)
+
+            //DontDestroyOnLoad(Instance);
+        }
+
+        private void Start()
+        {
+            InitGameState();
         }
 
         #region LevelManagerCalls
@@ -51,19 +62,39 @@ namespace Assets.Core.GameManagement
         internal void LoadMenu()
         {
             LevelManager.LoadMenu();
-            PlaySound("Theme");
+            PlayMusic("Theme");
         }
 
         #endregion
 
-        void PlaySound(string soundName)
+        void PlayMusic(string soundName)
         {
-            AudioManager.Play(soundName);
+            activeMusic = AudioManager.PlayMusic(soundName);
         }
 
         private void OnLevelWasLoaded(int level)
         {
+           InitGameState();
+        }
+
+        private void InitGameState()
+        {
             var gamestate = FindObjectOfType<GameState>();
+            if (gamestate != null)
+            {
+                StartGameStateMusic(gamestate);
+               
+                //else continue the same music
+            }
+        }
+
+        void StartGameStateMusic(GameState gamestate)
+        {
+            if(activeMusic != null && activeMusic.GetSoundName() != gamestate.StateMusic)
+            {
+                activeMusic.Stop();
+            }
+            PlayMusic(gamestate.StateMusic);
         }
     }
 }

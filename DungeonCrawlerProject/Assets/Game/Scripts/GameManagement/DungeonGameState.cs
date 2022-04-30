@@ -8,12 +8,11 @@ namespace Assets.Game.GameManagement
 {
     public class DungeonGameState : GameState
     {
-        public IGameState SetUpGameState()
+        public override string StateMusic => "none";
+
+        public override IGameState SetupGameState()
         {
-            //setup the object
-
-
-            return this;
+            throw new System.NotImplementedException();
         }
     }
 }

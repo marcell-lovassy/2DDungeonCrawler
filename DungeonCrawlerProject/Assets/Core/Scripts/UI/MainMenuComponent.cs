@@ -34,10 +34,7 @@ namespace Assets.Core.UI
         void Start()
         {
             allowInput = true;
-            playButton.onClick.AddListener(PlayOrContinue);
-            settingsButton.onClick.AddListener(GoToSettings);
-            backButton.onClick.AddListener(BackToMenu);
-            quitButton.onClick.AddListener(QuitGame);
+            SetUpButtonFunctions();
         }
 
 
@@ -45,7 +42,7 @@ namespace Assets.Core.UI
         {
             if (!allowInput) return;
             Debug.Log("You have clicked the Play button!");
-            allowInput = false;
+            //allowInput = false;
             GameManagement.GameManagerComponent.Instance.LoadGame();
         }
 
@@ -70,6 +67,21 @@ namespace Assets.Core.UI
 
             settings.SetActive(false);
             menu.SetActive(true);
+        }
+
+        private void SetUpButtonFunctions()
+        {
+            if (playButton == null) Debug.LogWarning("playButton button is not wired");
+            else playButton.onClick.AddListener(PlayOrContinue);
+
+            if (settingsButton == null) Debug.LogWarning("settingsButton button is not wired");
+            else settingsButton.onClick.AddListener(GoToSettings);
+
+            if (backButton == null) Debug.LogWarning("backButton button is not wired");
+            else settingsButton.onClick.AddListener(BackToMenu);
+
+            if (quitButton == null) Debug.LogWarning("quitButton button is not wired");
+            else settingsButton.onClick.AddListener(QuitGame);
         }
     }
 

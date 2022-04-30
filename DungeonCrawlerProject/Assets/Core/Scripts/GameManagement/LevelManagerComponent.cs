@@ -50,6 +50,7 @@ namespace Assets.Core.GameManagement
 
         internal void LoadMenu()
         {
+            if (levelManager.LevelIsLoading) return;
             StartCoroutine(levelManager.LoadMainMenu());
         }
 
@@ -65,11 +66,13 @@ namespace Assets.Core.GameManagement
 
         internal void LoadGame()
         {
+            if (levelManager.LevelIsLoading) return;
             StartCoroutine(levelManager.LoadGame());
         }
 
         public void LoadNextLevel()
         {
+            if (levelManager.LevelIsLoading) return;
             StartCoroutine(levelManager.LoadNextLevel());
         }
 

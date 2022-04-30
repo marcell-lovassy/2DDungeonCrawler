@@ -32,12 +32,12 @@ MonoBehaviour:
     - Zenject
     - UniRx
     - Core
-    - Extenject-Async
-    - Zenject-TestFramework
-    - Game
-    - Assembly-CSharp
-    - AllIn1SpriteShaderAssembly
     - Assembly-CSharp-firstpass
+    - Game
+    - Extenject-Async
+    - AllIn1SpriteShaderAssembly
+    - Zenject-TestFramework
+    - Assembly-CSharp
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

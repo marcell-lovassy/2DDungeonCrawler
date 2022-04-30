@@ -17,15 +17,43 @@ namespace Assets.Core.Audio
             sounds.ForEach(s => s.SetupSound(gameObject.AddComponent<AudioSource>()));
         }
 
-        public void Play(string name)
+        public Sound PlayMusic(string name)
+        {
+            var sound = GetSound(name);
+            if (sound != null && !sound.IsPlaying())
+            {
+                sound.Play();
+            }
+            return sound;
+        }
+
+        public void PlayEffect(string name)
+        {
+            var sound = GetSound(name);
+            sound?.Play();
+        }
+
+        public bool IsSoundPlaying(string name)
         {
             var s = sounds.FirstOrDefault(s => s.GetSoundName() == name);
             if (s == null)
             {
                 Debug.LogWarning($"Can not find sound with the name {name}");
-                return;
+                return false;
             }
-            s.Play();
+            return s.IsPlaying();
+        }
+
+        private Sound GetSound(string name)
+        {
+            var s = sounds.FirstOrDefault(s => s.GetSoundName() == name);
+            if (s == null)
+            {
+                Debug.LogWarning($"Can not find sound with the name {name}");
+                return null;
+            }
+
+            return s;
         }
     }
 }

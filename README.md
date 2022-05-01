@@ -10,6 +10,8 @@ https://docs.unity3d.com/Packages/com.unity.shadergraph@12.1/manual/index.html
 
 ### Used packages from git:
 
+Install git: https://git-scm.com/
+
 Extenject: https://github.com/Mathijs-Bakker/Extenject </br>
 Add to project from git via Package Manager: </br>https://github.com/Mathijs-Bakker/Extenject.git?path=UnityProject/Assets/Plugins/Zenject/Source
 

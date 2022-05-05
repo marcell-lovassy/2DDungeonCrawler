@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 897e5624e90e1554fbdf6057d1338216
   - enabled: 1
+    path: Assets/Scenes/Templates/DungeonBase.unity
+    guid: be35288fcba48f8458cbc29ce121bb34
+  - enabled: 0
     path: Assets/Scenes/Templates/TutorialDungeon.unity
     guid: f98cc0f674f485c43a63a35591f3123a
   m_configObjects: {}

@@ -399,7 +399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86c8b6b6aaf4ff4f879aea942b03507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacters: []
+  selectedCharacters:
+  - {fileID: 8989758279721765278, guid: 44978d09286686a488d0229b38fecf3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 8989758279721765278, guid: 44978d09286686a488d0229b38fecf3e, type: 3}
+  - {fileID: 0}
+  rewards: []
 --- !u!1 &6241957174508879908
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ namespace Assets.Game.Dungeon
     public class DungeonLevelData : ILevelData
     {
         //TODO: create setters, validators etc.
-        public List<DungeonCharacter> DungeonCharacters { get; set; }
+        public DungeonCharacter[] DungeonCharacters { get; set; } = new DungeonCharacter[4];
         public List<DungeonReward> Rewards { get; set; }
     }
 }

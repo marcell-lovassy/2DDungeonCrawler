@@ -16,6 +16,18 @@ namespace Assets.Game.Dungeon
         CharacterSlot rightNeighbourSlot;
 
         [SerializeField]
-        DungeonCharacter character;
+        DungeonCharacter _character;
+
+        internal void SetCharacter(DungeonCharacter character)
+        {
+            if (character == null) return;
+            _character = Instantiate(character);
+            SetCharacterPosition();
+        }
+
+        private void SetCharacterPosition()
+        {
+            _character.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.transform.position.z);
+        }
     }
 }

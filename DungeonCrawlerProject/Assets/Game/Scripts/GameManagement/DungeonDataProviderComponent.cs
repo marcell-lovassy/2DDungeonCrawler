@@ -14,7 +14,7 @@ namespace Assets.Game.GameManagement
     {
         //TODO: these should not be serialized fields
         [SerializeField]
-        List<DungeonCharacter> selectedCharacters;
+        DungeonCharacter[] selectedCharacters = new DungeonCharacter[4];
 
         [SerializeField]
         List<DungeonReward> rewards;

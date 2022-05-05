@@ -23,10 +23,20 @@ namespace Assets.Game.Dungeon
             dungeonData = (DungeonLevelData)GameManagerComponent.Instance.levelDataObject;
         }
 
+        private void Start()
+        {
+            SetupCharacters();
+        }
+
 
         private void SetupCharacters()
         {
-
+            int i = 0;
+            foreach (var character in dungeonData.DungeonCharacters)
+            {
+                characterSlots[i].SetCharacter(character);
+                i++;
+            }
         }
 
     }

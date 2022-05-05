@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Game.Dungeon
 {
-    public class DungeonCharacter
+    public class DungeonCharacter : MonoBehaviour
     {
+        [SerializeField]
+        string characterName;
+
+        private void Awake()
+        {
+            
+        }
     }
 }

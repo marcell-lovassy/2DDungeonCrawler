@@ -18,6 +18,8 @@ namespace Assets.Core.GameManagement
 
         private Sound activeMusic = null;
 
+        public ILevelData levelDataObject { get; set; }
+
         private void Awake()
         {
             if (Instance == null)

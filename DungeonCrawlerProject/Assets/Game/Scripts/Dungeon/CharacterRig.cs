@@ -10,11 +10,13 @@ namespace Assets.Game.Dungeon
 {
     public class CharacterRig : MonoBehaviour
     {
-        [SerializeField]
-        float slotDistance;
-
+        [Header("Slot Setup")]
         [SerializeField]
         CharacterSlot[] characterSlots = new CharacterSlot[4];
+        [SerializeField]
+        float maxSlotDistance;
+        [SerializeField]
+        float minSlotDistance;
 
         DungeonLevelData dungeonData;
 
@@ -35,9 +37,14 @@ namespace Assets.Game.Dungeon
             foreach (var character in dungeonData.DungeonCharacters)
             {
                 characterSlots[i].SetCharacter(character);
+                characterSlots[i].SetDistances(minSlotDistance, maxSlotDistance);
                 i++;
             }
         }
 
+        public CharacterSlot GetLeadingSlot()
+        {
+            return characterSlots[0];
+        }
     }
 }

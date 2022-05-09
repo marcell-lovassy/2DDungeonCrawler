@@ -608,6 +608,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2126001402}
     m_Modifications:
+    - target: {fileID: 1768010577023959733, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: movementReactionSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768010577092819463, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: movementReactionSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1768010577653629133, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
       propertyPath: m_Name
       value: CharacterRig
@@ -618,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768010577653629134, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768010577653629134, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
       propertyPath: m_LocalPosition.y
@@ -655,6 +663,14 @@ PrefabInstance:
     - target: {fileID: 1768010577653629134, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768010577943469175, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: movementReactionSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768010578364932426, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: movementReactionSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 219a6561874321147bc613f3c1d2e023, type: 3}

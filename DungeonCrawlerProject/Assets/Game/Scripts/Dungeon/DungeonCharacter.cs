@@ -12,9 +12,11 @@ namespace Assets.Game.Dungeon
         [SerializeField]
         string characterName;
 
+        //Animator characterAnimator;
+
         private void Awake()
         {
-            
+            //characterAnimator = GetComponent<Animator>();
         }
     }
 }

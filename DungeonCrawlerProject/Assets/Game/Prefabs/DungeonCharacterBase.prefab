@@ -164,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19ca1c1ac14f8450ba19001288580c8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0ef9c35fdf29884ca263255d8bbbb38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,7 +186,10 @@ GameObject:
   - component: {fileID: 7583881817219636999}
   - component: {fileID: 8989758279721765278}
   - component: {fileID: 8698159743960895482}
-  - component: {fileID: 8104085835747829216}
+  - component: {fileID: -8679626814027932325}
+  - component: {fileID: 5840578585478520443}
+  - component: {fileID: 2372508467885180221}
+  - component: {fileID: -5944827335030287758}
   m_Layer: 0
   m_Name: DungeonCharacterBase
   m_TagString: Untagged
@@ -234,7 +237,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55d00de44cd5884da04f344bb4c159a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8104085835747829216
+--- !u!50 &-8679626814027932325
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194218927649494425}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!70 &5840578585478520443
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194218927649494425}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
+--- !u!114 &2372508467885180221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,6 +283,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5194218927649494425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be112ca6c0c073f49b1ed32521ce54cb, type: 3}
+  m_Script: {fileID: 11500000, guid: b8262a739d061c74ba05f0eb150ae184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 5438512579310347826}
+  hoverMaterial: {fileID: 2100000, guid: 0c52a160da25bee439d96e859d447baf, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 0fdf4485896784942a1c4e106be504a4, type: 2}
+--- !u!114 &-5944827335030287758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194218927649494425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0

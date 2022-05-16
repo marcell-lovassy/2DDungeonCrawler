@@ -15,3 +15,6 @@ MonoBehaviour:
   Dungeons:
   - {fileID: 11400000, guid: b31126a215bb6c9479cea8cea3b1c889, type: 2}
   - {fileID: 11400000, guid: 8186547e8d4f828489a38a4df4a18b16, type: 2}
+  - {fileID: 11400000, guid: 3e76dae5e8436d84485a290fd3e89892, type: 2}
+  - {fileID: 11400000, guid: 66f0f4d44b9450c47800a105f825825e, type: 2}
+  - {fileID: 11400000, guid: 9c4b6daabbb6f4344a0b2326818d81b3, type: 2}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,20 +8,27 @@ namespace Assets.Game.Gameplay.Hub
 {
     public class DungeonMapManager : MonoBehaviour
     {
+
         [SerializeField]
-        List<DungeonMap> maps;
+        MapView dungeonMapView;
 
+        [SerializeField]
+        List<DungeonMaps> maps;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-        
+            dungeonMapView.gameObject.SetActive(false);
+            CreateMapFromData();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void CreateMapFromData()
         {
-        
+            dungeonMapView.SetData(maps);
+        }
+
+        public void OpenDungeonMap()
+        {
+            dungeonMapView.gameObject.SetActive(true);
         }
     }
 }

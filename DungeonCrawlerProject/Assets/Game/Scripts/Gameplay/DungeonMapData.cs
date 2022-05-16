@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -6,15 +7,13 @@ using UnityEngine;
 
 namespace Assets.Game.Gameplay
 {
+    [Serializable]
     [CreateAssetMenu(menuName = "ScriptableObjects/DungeonMapData")]
     public class DungeonMapData : ScriptableObject
     {
-        [SerializeField]
-        DungeonLocation location;
-        [SerializeField]
-        string dungeonName;
-        [SerializeField]
-        int dungeonIndex;
+        public DungeonLocation location;
+        public string dungeonName;
+        public int dungeonIndex;
     }
     public enum DungeonLocation
     {

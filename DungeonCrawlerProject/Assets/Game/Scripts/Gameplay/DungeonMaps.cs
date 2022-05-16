@@ -7,8 +7,7 @@ namespace Assets.Game.Gameplay
     [CreateAssetMenu(menuName = "ScriptableObjects/DungeonMaps")]
     public class DungeonMaps : ScriptableObject
     {
-        [SerializeField]
-        List<DungeonMapData> Dungeons = new List<DungeonMapData>();
+        public List<DungeonMapData> Dungeons;
     }
 }
 

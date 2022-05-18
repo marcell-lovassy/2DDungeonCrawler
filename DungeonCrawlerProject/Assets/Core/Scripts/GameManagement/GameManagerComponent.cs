@@ -98,6 +98,11 @@ namespace Assets.Core.GameManagement
             }
             PlayMusic(gamestate.StateMusic);
         }
+
+        public void LoadLevel(string levelName)
+        {
+            LevelManager.LoadlevelByName(levelName);
+        }
     }
 }
 

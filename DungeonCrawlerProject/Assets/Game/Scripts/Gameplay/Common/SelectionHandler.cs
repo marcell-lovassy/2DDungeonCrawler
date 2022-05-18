@@ -8,16 +8,15 @@ namespace Assets.Game.Gameplay.Common
 {
     public class SelectionHandler
     {
-        ISelectable lastSekectedObject;
+        ISelectable lastSelectedObject;
 
         public void SelectionChanged(ISelectable selectable)
         {
-            if (lastSekectedObject != selectable)
+            if (lastSelectedObject != selectable)
             {
-                lastSekectedObject?.Deselect();
-                lastSekectedObject = selectable;
+                lastSelectedObject?.Deselect();
+                lastSelectedObject = selectable;
             }
         }
-
     }
 }

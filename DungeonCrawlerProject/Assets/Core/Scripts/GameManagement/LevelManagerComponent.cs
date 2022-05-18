@@ -81,6 +81,12 @@ namespace Assets.Core.GameManagement
             loadingAnimator.SetTrigger(state.ToString());
             loadingState = state;
         }
+
+        public void LoadlevelByName(string dungeonName)
+        {
+            if (levelManager.LevelIsLoading) return;
+            StartCoroutine(levelManager.LoadLevelByName(dungeonName));
+        }
     }
 }
 

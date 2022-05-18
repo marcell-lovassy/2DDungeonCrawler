@@ -94,14 +94,30 @@ namespace Assets.Core.GameManagement
             }
         }
 
-        public IEnumerator LoadLevel(int levelIndex, bool requiresUserInput = true)
+        public IEnumerator LoadLevelByIndex(int levelIndex, bool requiresUserInput = true)
+        {
+            return LoadLevel(levelIndex, null, requiresUserInput);
+        }
+
+        public IEnumerator LoadLevelByName(string levelName, bool requiresUserInput = true)
+        {
+            return LoadLevel(0, levelName, requiresUserInput);
+        }
+
+        private IEnumerator LoadLevel(int levelIndex, string levelName = null, bool requiresUserInput = true)
         {
             LevelIsLoading = true;
             bool canActivateNextScene = true;
-
+            AsyncOperation loading = null;
             HandleLoadingState(LoadingState.LoadingStarted);
-
-            AsyncOperation loading = SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
+            if(levelName != null)
+            {
+                loading = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
+            }
+            else
+            {
+                loading = SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
+            }
             loading.allowSceneActivation = false;
             UpdateLoadingSlider(0);
             yield return null;
@@ -145,7 +161,7 @@ namespace Assets.Core.GameManagement
 
         internal IEnumerator LoadMainMenu()
         {
-            return LoadLevel(1, true);
+            return LoadLevel(1, null, true);
         }
 
         public IEnumerator LoadNextLevel()

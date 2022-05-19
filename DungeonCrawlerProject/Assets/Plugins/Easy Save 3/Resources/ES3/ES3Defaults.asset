@@ -38,6 +38,7 @@ MonoBehaviour:
     - AllIn1SpriteShaderAssembly
     - Zenject-TestFramework
     - Assembly-CSharp
+    - ProCamera2D
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

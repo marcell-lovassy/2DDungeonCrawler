@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tower of Secrets
+  m_text: Some Game Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68999565115483f44aedb5acf9d43c0c, type: 2}
   m_sharedMaterial: {fileID: 7026577511265363694, guid: 68999565115483f44aedb5acf9d43c0c, type: 2}

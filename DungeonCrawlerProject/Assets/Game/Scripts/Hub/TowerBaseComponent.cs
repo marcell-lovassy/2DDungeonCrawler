@@ -64,7 +64,7 @@ public class TowerBaseComponent : MonoBehaviour
             {
                 var t = button.transform as RectTransform;
                 var pt = previousButton.transform as RectTransform;
-                t.anchoredPosition += new Vector2(0, pt.anchoredPosition.y + pt.rect.height); 
+                t.anchoredPosition += new Vector2(0, pt.anchoredPosition.y + pt.rect.height + 20); 
             }
             button.SetupButton(level.GetName(), action);
 

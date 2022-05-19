@@ -29,7 +29,6 @@ namespace Assets.Game.UI
             button.onClick.AddListener(FireAction);
         }
 
-
         public void SetupButton(string floorToGo, GoToFloorAction action)
         {
             floorName = floorToGo;

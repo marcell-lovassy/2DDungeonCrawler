@@ -5,31 +5,38 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
+//TODO: inject it from IOC? Put it on SceneContext?
+/// <summary>
+/// Mouse buttons: 0: left, 1: right, 2: middle
+/// </summary>
 public class MouseController : MonoBehaviour
 {
     [Inject]
     SelectionHandler selectionHandler;
 
-    Camera camera;
-    int screenHeight = Screen.height;
+    Camera cam;
 
     void Start()
     {
-        camera = Camera.main;
+        cam = Camera.main;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //0: left, 1: right, 2: middle
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastMouseLeftClick(Input.mousePosition);
         }
+        if (Input.GetMouseButtonDown(1)) 
+        {
+            RaycastMouseLeftClick(Input.mousePosition, false);
+        }
     }
 
-    void RaycastMouseLeftClick(Vector3 mousePointerPosition)
+    void RaycastMouseLeftClick(Vector3 mousePointerPosition, bool select = true)
     {
-        Ray ray = camera.ScreenPointToRay(camera.ScreenToWorldPoint(mousePointerPosition));
-        RaycastHit2D hit = Physics2D.Raycast(camera.ScreenToWorldPoint(mousePointerPosition), Vector2.zero);
+        Ray ray = cam.ScreenPointToRay(cam.ScreenToWorldPoint(mousePointerPosition));
+        RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(mousePointerPosition), Vector2.zero);
 
         var uiHits = HitUI(mousePointerPosition);
 
@@ -40,7 +47,8 @@ public class MouseController : MonoBehaviour
             Selectable s = null;
             if ((s = hit.collider.gameObject.GetComponent<Selectable>()) != null)
             {
-                s.Select();
+                if (select) s.Select();
+                else s.Deselect();
             }
         }
         else

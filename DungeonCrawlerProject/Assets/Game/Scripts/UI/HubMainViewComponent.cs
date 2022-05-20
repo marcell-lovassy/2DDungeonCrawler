@@ -2,16 +2,17 @@ using Com.LuisPedroFonseca.ProCamera2D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Game.UI
 {
-    public class HubMainViewComponent : MonoBehaviour
+    public class HubMainViewComponent : ViewBaseComponent
     {
-        [SerializeField]
-        private ProCamera2DRooms roomsCam;
-        public ProCamera2DRooms GetRoomCamera()
+        public override bool IsBlocking { get; set; } = false;
+
+        protected override void Awake()
         {
-            return roomsCam;
+            base.Awake();
         }
     }
 }

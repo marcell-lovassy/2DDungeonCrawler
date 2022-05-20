@@ -22,7 +22,7 @@ namespace Assets.Game.Gameplay.Common
         public bool IsSelected { get; private set; }
 
         [Inject]
-        SelectionHandler selectionHandler;
+        protected SelectionHandler selectionHandler;
 
         private void Awake()
         {
@@ -31,7 +31,10 @@ namespace Assets.Game.Gameplay.Common
 
         private void OnMouseEnter()
         {
-            if(!IsSelected) HighlightHover();
+            if (!IsSelected && !selectionHandler.SelectionBlocked)
+            {
+                HighlightHover();
+            }
         }
 
         private void OnMouseExit()

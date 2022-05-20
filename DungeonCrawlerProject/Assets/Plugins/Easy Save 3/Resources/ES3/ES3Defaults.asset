@@ -34,11 +34,11 @@ MonoBehaviour:
     - Core
     - Assembly-CSharp-firstpass
     - Game
+    - ProCamera2D
     - Extenject-Async
     - AllIn1SpriteShaderAssembly
     - Zenject-TestFramework
     - Assembly-CSharp
-    - ProCamera2D
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

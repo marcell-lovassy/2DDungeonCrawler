@@ -29,7 +29,7 @@ namespace Assets.Game.Gameplay.Common
 
         public override void Select()
         {
-            if (IsSelected) return;
+            if (IsSelected || selectionHandler.SelectionBlocked) return;
             base.Select();
             tower.EnterRoom(towerRoomIndex);
         }
@@ -42,6 +42,7 @@ namespace Assets.Game.Gameplay.Common
 
         public override void HighlightHover()
         {
+            if (selectionHandler.SelectionBlocked) return;
             base.HighlightHover();
         }
 

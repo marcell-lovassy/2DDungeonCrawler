@@ -10,6 +10,8 @@ namespace Assets.Game.Gameplay.Common
     {
         ISelectable lastSelectedObject;
 
+        public bool SelectionBlocked { get; private set; }
+
         public void SelectionChanged(ISelectable selectable)
         {
             if (lastSelectedObject != selectable)
@@ -17,6 +19,16 @@ namespace Assets.Game.Gameplay.Common
                 lastSelectedObject?.Deselect();
                 lastSelectedObject = selectable;
             }
+        }
+
+        public void BlockSelection()
+        {
+            SelectionBlocked = true;
+        }
+
+        public void UnblockSelection()
+        {
+            SelectionBlocked = false;
         }
     }
 }

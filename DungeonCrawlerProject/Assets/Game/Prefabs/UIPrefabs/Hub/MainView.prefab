@@ -236,8 +236,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Open Map
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5bfcd74791d3b964facf64e9347bb5b3, type: 2}
+  m_sharedMaterial: {fileID: 8680863018094401326, guid: 5bfcd74791d3b964facf64e9347bb5b3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

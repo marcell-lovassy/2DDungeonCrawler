@@ -2135,6 +2135,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3504201086361953569, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bfcd74791d3b964facf64e9347bb5b3, type: 2}
+    - target: {fileID: 3504201086361953569, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8680863018094401326, guid: 5bfcd74791d3b964facf64e9347bb5b3, type: 2}
     - target: {fileID: 3865964732995175762, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_SizeDelta.x
       value: 120

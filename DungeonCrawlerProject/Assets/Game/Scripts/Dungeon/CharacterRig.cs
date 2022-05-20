@@ -18,11 +18,11 @@ namespace Assets.Game.Dungeon
         [SerializeField]
         float minSlotDistance;
 
-        DungeonLevelData dungeonData;
+        DungeonCharacter[] characters;
 
         private void Awake()
         {
-            dungeonData = (DungeonLevelData)GameManagerComponent.Instance.levelDataObject;
+            characters = (GameManagerComponent.Instance.levelDataObject as DungeonLevelData).DungeonCharacters;
         }
 
         private void Start()
@@ -30,11 +30,10 @@ namespace Assets.Game.Dungeon
             SetupCharacters();
         }
 
-
         private void SetupCharacters()
         {
             int i = 0;
-            foreach (var character in dungeonData.DungeonCharacters)
+            foreach (var character in characters)
             {
                 characterSlots[i].SetCharacter(character);
                 characterSlots[i].SetDistances(minSlotDistance, maxSlotDistance);

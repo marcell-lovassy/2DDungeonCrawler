@@ -37,8 +37,10 @@ MonoBehaviour:
     - ProCamera2D
     - Extenject-Async
     - AllIn1SpriteShaderAssembly
+    - ES3.Editor
     - Zenject-TestFramework
     - Assembly-CSharp
+    - Assembly-CSharp-firstpass
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

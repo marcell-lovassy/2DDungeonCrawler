@@ -27,8 +27,8 @@ namespace Assets.Game.UI
         //TODO: create a generic open view method with a baseview parameter
         public void OpenMapView()
         {
+            mapView.Open();
             hubMenuView.gameObject.SetActive(false);
-            mapView.gameObject.SetActive(true);
             if (mapView.IsBlocking)
             {
                 SelectionHandler.BlockSelection();
@@ -41,7 +41,7 @@ namespace Assets.Game.UI
         {
             SelectionHandler.UnblockSelection();
             PopFromViewStack();
-            mapView.gameObject.SetActive(false);
+            mapView.Close();
             hubMenuView.gameObject.SetActive(true);
         }
 
@@ -55,6 +55,7 @@ namespace Assets.Game.UI
 
         private void PushToViewStack(ViewBaseComponent component)
         {
+            if (uiViewStack.Count != 0 && uiViewStack.Peek() == component) return;
             if (component.IsBlocking) uiViewStack.Peek()?.Block();
             uiViewStack.Push(component);
         }

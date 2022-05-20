@@ -2,10 +2,13 @@ using UnityEngine;
 using Zenject;
 using Assets.Game.Gameplay.Common;
 
-public class DungeonInstaller : MonoInstaller
+namespace Assets.Game.Installers
 {
-    public override void InstallBindings()
+    public class DungeonInstaller : MonoInstaller
     {
-        Container.Bind<SelectionHandler>().FromInstance(new SelectionHandler()).AsSingle().NonLazy();
+        public override void InstallBindings()
+        {
+            Container.Bind<SelectionHandler>().FromInstance(new SelectionHandler()).AsSingle().NonLazy();
+        }
     }
 }

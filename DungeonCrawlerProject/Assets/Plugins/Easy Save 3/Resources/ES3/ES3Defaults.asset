@@ -32,7 +32,7 @@ MonoBehaviour:
     - Zenject
     - UniRx
     - Core
-    - Assembly-CSharp-firstpass
+    - ES3
     - Game
     - ProCamera2D
     - Extenject-Async

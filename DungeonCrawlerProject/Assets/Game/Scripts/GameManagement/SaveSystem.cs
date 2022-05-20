@@ -27,17 +27,21 @@ namespace Assets.Game.GameManagement
             //load the save data or create a popup to select profile
             //(if there is a multi profile implementation)
             sessionData = LoadGameData();
+            SaveGameData();
         }
 
 
         private SessionData LoadGameData()
         {
+            //var gameData = ES3.Load<SessionData>("Profile1", new SessionData());
+            //return gameData;
             return new SessionData();
         }
 
         public void SaveGameData()
         {
-
+            //sessionData.goldAmount = 10;
+            //ES3.Save<SessionData>("Profile1", sessionData);
         }
     }
 }

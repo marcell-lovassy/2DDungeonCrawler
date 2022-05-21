@@ -14,6 +14,8 @@ namespace Assets.Game.UI
         public List<Button> Buttons { get; set; }
         public abstract bool IsBlocking { get; set; }
 
+        public abstract List<ViewBaseComponent> childViews { get; set; }
+
         protected virtual void Awake()
         {
             Buttons = GetComponentsInChildren<Button>().ToList();
@@ -48,6 +50,20 @@ namespace Assets.Game.UI
         public void Unblock()
         {
             Blocked = false;
+        }
+
+        public void Open()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Close()
+        {
+            foreach (var view in childViews)
+            {
+                view.Close();
+            }
+            gameObject.SetActive(false);
         }
     }
 }

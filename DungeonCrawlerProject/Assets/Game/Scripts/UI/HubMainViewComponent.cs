@@ -10,6 +10,9 @@ namespace Assets.Game.UI
     {
         public override bool IsBlocking { get; set; } = false;
 
+        [field: SerializeField]
+        public override List<ViewBaseComponent> childViews { get; set; }
+
         protected override void Awake()
         {
             base.Awake();

@@ -43,5 +43,10 @@ namespace Assets.Game.GameManagement
             //sessionData.goldAmount = 10;
             //ES3.Save<SessionData>("Profile1", sessionData);
         }
+
+        public void SetSessionData(SessionData s)
+        {
+            sessionData = s;
+        }
     }
 }

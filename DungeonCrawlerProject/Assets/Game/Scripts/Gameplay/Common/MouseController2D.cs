@@ -9,7 +9,7 @@ using Zenject;
 /// <summary>
 /// Mouse buttons: 0: left, 1: right, 2: middle
 /// </summary>
-public class MouseController : MonoBehaviour
+public class MouseController2D : MonoBehaviour
 {
     [Inject]
     SelectionHandler selectionHandler;

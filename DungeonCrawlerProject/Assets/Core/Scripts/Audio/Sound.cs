@@ -54,9 +54,19 @@ namespace Assets.Core.Audio
             source.playOnAwake = playOnAwake;
         }
 
+        public void PlayEffect()
+        {
+            source.PlayOneShot(clip);
+        }
+
         public string GetSoundName()
         {
             return name;
+        }
+
+        public void Pause()
+        {
+            source.Pause();
         }
 
         public bool IsPlaying()

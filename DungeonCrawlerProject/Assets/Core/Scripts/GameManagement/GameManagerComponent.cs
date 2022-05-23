@@ -12,7 +12,7 @@ namespace Assets.Core.GameManagement
         [SerializeField]
         private LevelManagerComponent LevelManager;
         [SerializeField]
-        private AudioManagerComponent AudioManager;
+        public AudioManagerComponent AudioManager;
 
         public static GameManagerComponent Instance;
 
@@ -69,9 +69,14 @@ namespace Assets.Core.GameManagement
 
         #endregion
 
-        void PlayMusic(string soundName)
+        public void PlayMusic(string soundName)
         {
             activeMusic = AudioManager.PlayMusic(soundName);
+        }
+
+        public void PlayEffect(string effectName)
+        {
+            AudioManager.PlayEffect(effectName);
         }
 
         private void OnLevelWasLoaded(int level)

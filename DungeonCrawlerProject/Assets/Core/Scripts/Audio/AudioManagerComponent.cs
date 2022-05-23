@@ -30,7 +30,33 @@ namespace Assets.Core.Audio
         public void PlayEffect(string name)
         {
             var sound = GetSound(name);
-            sound?.Play();
+            sound?.PlayEffect();
+        }
+
+        public void StopAllMusic()
+        {
+            foreach (var sound in sounds)
+            {
+                sound.Stop();
+            }
+        }
+
+        public void StopMusic(string name)
+        {
+            var sound = GetSound(name);
+            if (sound != null && sound.IsPlaying())
+            {
+                sound.Stop();
+            }
+        }
+
+        public void PauseMusic(string name)
+        {
+            var sound = GetSound(name);
+            if (sound != null && sound.IsPlaying())
+            {
+                sound.Pause();
+            }
         }
 
         public bool IsSoundPlaying(string name)
@@ -54,6 +80,22 @@ namespace Assets.Core.Audio
             }
 
             return s;
+        }
+
+        public void AddSound(Sound s)
+        {
+            if (!sounds.Contains(s))
+            {
+                sounds.Add(s);
+            }
+        }
+
+        public void RemoveSound(Sound s)
+        {
+            if (sounds.Contains(s))
+            {
+                sounds.Remove(s);
+            }
         }
     }
 }

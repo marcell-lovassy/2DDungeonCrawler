@@ -388,6 +388,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 1
+  - name: LeftClick
+    clip: {fileID: 8300000, guid: 9ce1fb609670559469dfd0fea8e944bd, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - name: RightClick
+    clip: {fileID: 8300000, guid: 8168268e9e5def7498dcd9519eb5a7c7, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
 --- !u!114 &-5899082923651080522
 MonoBehaviour:
   m_ObjectHideFlags: 0

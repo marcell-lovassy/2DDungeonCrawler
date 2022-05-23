@@ -15,7 +15,7 @@ namespace Assets.Game.Installers
         public override void InstallBindings()
         {
             Container.Bind<SelectionHandler>().FromInstance(new SelectionHandler()).AsSingle().NonLazy();
-            Container.Bind<MouseController3D>().FromComponentInNewPrefab(mouseController3DPrefab).AsSingle().NonLazy();
+            Container.Bind<MouseController2D>().FromComponentInNewPrefab(mouseController2DPrefab).AsSingle().NonLazy();
         }
     }
 }

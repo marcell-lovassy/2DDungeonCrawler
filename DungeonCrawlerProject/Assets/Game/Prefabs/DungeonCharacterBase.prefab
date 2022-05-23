@@ -188,8 +188,8 @@ GameObject:
   - component: {fileID: 8698159743960895482}
   - component: {fileID: 2372508467885180221}
   - component: {fileID: -5944827335030287758}
-  - component: {fileID: 6861913851212692886}
-  - component: {fileID: 1880291793523632285}
+  - component: {fileID: 7512096287797114121}
+  - component: {fileID: 1843882363774510568}
   m_Layer: 0
   m_Name: DungeonCharacterBase
   m_TagString: Untagged
@@ -249,7 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8262a739d061c74ba05f0eb150ae184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 5438512579310347826}
+  renderers:
+  - {fileID: 5438512579310347826}
   hoverMaterial: {fileID: 2100000, guid: 0c52a160da25bee439d96e859d447baf, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 0fdf4485896784942a1c4e106be504a4, type: 2}
 --- !u!114 &-5944827335030287758
@@ -265,33 +266,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerSource: 0
---- !u!54 &6861913851212692886
-Rigidbody:
+--- !u!50 &7512096287797114121
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5194218927649494425}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 112
+  m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!136 &1880291793523632285
-CapsuleCollider:
+  m_Constraints: 4
+--- !u!70 &1843882363774510568
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5194218927649494425}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1.75}
+  m_Direction: 0

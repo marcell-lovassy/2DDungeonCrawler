@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Core.Audio;
+using Assets.Game.GameManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,12 +34,17 @@ namespace Assets.Game.Gameplay.Common
             if (IsSelected || selectionHandler.SelectionBlocked) return;
             base.Select();
             tower.EnterRoom(towerRoomIndex);
+            //SceneAudioController.Instance.PlayMusic(towerRoomName);
+            SceneAudioController.Instance.PlayList(towerRoomName);
         }
 
         public override void Deselect()
         {
             base.Deselect();
             tower.ExitRoom();
+            //SceneAudioController.Instance.PauseMusic(towerRoomName);
+            SceneAudioController.Instance.PauseList(towerRoomName);
+
         }
 
         public override void HighlightHover()

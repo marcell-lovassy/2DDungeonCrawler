@@ -1,3 +1,4 @@
+using Assets.Core.GameManagement;
 using Assets.Game.Gameplay.Common;
 using Com.LuisPedroFonseca.ProCamera2D;
 using System.Collections;
@@ -26,10 +27,12 @@ public class MouseController2D : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            GameManagerComponent.Instance.AudioManager.PlayEffect("LeftClick");
             RaycastMouseLeftClick(Input.mousePosition);
         }
         if (Input.GetMouseButtonDown(1)) 
         {
+            GameManagerComponent.Instance.AudioManager.PlayEffect("RightClick");
             RaycastMouseLeftClick(Input.mousePosition, false);
         }
     }
@@ -48,8 +51,19 @@ public class MouseController2D : MonoBehaviour
             Selectable s = null;
             if ((s = hit.collider.gameObject.GetComponent<Selectable>()) != null)
             {
-                if (select) s.Select();
-                else s.Deselect();
+                if (select)
+                {
+                    s.Select();
+                }
+                else
+                {
+                    s.Deselect();
+                    ProCamera2DRooms roomsCam = cam.GetComponent<ProCamera2DRooms>();
+                    if (roomsCam != null)
+                    {
+                        roomsCam.EnterRoom(0);
+                    }
+                }
             }
         }
         else

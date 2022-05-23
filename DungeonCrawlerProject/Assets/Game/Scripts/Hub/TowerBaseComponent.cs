@@ -26,6 +26,8 @@ public class TowerBaseComponent : MonoBehaviour
 
     public GoToFloorAction action;
 
+    private int camRoomCorrection = 0;
+
     private void Start()
     {
         towerLevels = GetComponentsInChildren<SelectableTowerLevel>().ToList();
@@ -33,12 +35,14 @@ public class TowerBaseComponent : MonoBehaviour
         //roomsCam.EnterRoom(0);
         action = EnterRoom;
         FillFloorNavigation();
+
+        camRoomCorrection = Mathf.Abs(towerLevels.Count - roomsCam.Rooms.Count);
     }
 
     public void EnterRoom(int room)
     {
-        towerLevels.ElementAt(room).Select();
-        roomsCam.EnterRoom(room);
+        if(!towerLevels.ElementAt(room).IsSelected) towerLevels.ElementAt(room).Select();
+        roomsCam.EnterRoom(room + camRoomCorrection);
     }
 
     internal void ExitRoom()

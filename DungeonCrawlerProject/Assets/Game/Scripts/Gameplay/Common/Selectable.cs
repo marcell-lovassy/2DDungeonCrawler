@@ -9,7 +9,7 @@ namespace Assets.Game.Gameplay.Common
     public abstract class Selectable : MonoBehaviour, ISelectable
     {
         [SerializeField]
-        Renderer renderer;
+        List<Renderer> renderers;
 
         [SerializeField]
         Material hoverMaterial;
@@ -26,7 +26,7 @@ namespace Assets.Game.Gameplay.Common
 
         private void Awake()
         {
-            baseMaterial = renderer.material;
+            baseMaterial = renderers[0].material;
         }
 
         private void OnMouseEnter()
@@ -39,13 +39,13 @@ namespace Assets.Game.Gameplay.Common
 
         private void OnMouseExit()
         {
-            if(!IsSelected) renderer.material = baseMaterial;
+            if(!IsSelected) renderers.ForEach(r => r.material = baseMaterial);
         }
 
         public virtual void Select()
         {
             //TODO: create a selection manager, to handle the deselection etc.
-            renderer.material = selectedMaterial;
+            renderers.ForEach(r => r.material = selectedMaterial);
             IsSelected = true;
             selectionHandler.SelectionChanged(this);
         }
@@ -54,13 +54,15 @@ namespace Assets.Game.Gameplay.Common
         {
             //TODO: deselect if something else is selected
             //-> selectionManager is needed that knows the previously selected object etc.
-            renderer.material = baseMaterial;
+            //renderer.material = baseMaterial;
+            renderers.ForEach(r => r.material = baseMaterial);
             IsSelected = false;
         }
 
         public virtual void HighlightHover()
         {
-            renderer.material = hoverMaterial;
+            //renderer.material = hoverMaterial;
+            renderers.ForEach(r => r.material = hoverMaterial);
         }
     }
 }

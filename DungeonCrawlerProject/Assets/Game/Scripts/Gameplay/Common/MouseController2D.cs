@@ -1,4 +1,5 @@
 using Assets.Game.Gameplay.Common;
+using Com.LuisPedroFonseca.ProCamera2D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,6 +55,11 @@ public class MouseController2D : MonoBehaviour
         else
         {
             selectionHandler.SelectionChanged(null);
+            ProCamera2DRooms roomsCam = cam.GetComponent<ProCamera2DRooms>();
+            if (roomsCam != null)
+            {
+                roomsCam.EnterRoom(0);
+            }
         }
     }
 

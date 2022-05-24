@@ -6,6 +6,10 @@ using System.Linq;
 
 namespace Assets.Core.Audio
 {
+    /// <summary>
+    /// Store the global sounds of the game. Every scene related sound goes on to the SceneAudioControllers
+    /// Global sounds: sounds of UI effects
+    /// </summary>
     public class AudioManagerComponent : MonoBehaviour
     {
         [SerializeField]

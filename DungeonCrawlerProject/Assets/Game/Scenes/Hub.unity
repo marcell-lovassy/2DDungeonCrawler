@@ -4998,7 +4998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088124830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3015c3573968a14c91a44b793e85b31, type: 3}
+  m_Script: {fileID: 11500000, guid: d609e2b62fe7eed4b8dc448807f48b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
@@ -5008,65 +5008,60 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 0
-  - name: HubMusic
+    fadeTimeModifier: 0.5
+  - name: HubTheme
     clip: {fileID: 8300000, guid: b3d1976d916dac74788d92381ab5202d, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
     playOnAwake: 0
+    fadeTimeModifier: 0.5
   soundLists:
   - ListName: Tavern
     mainMusic:
-      name: Ambient
+      name: TavernAmbient
       clip: {fileID: 8300000, guid: de09aaf9ccfa9be418567ae0bc4edd0c, type: 3}
       volume: 0.1
       pitch: 1
       loop: 1
       playOnAwake: 0
+      fadeTimeModifier: 0.5
     playIntervalMin: 0
     playIntervalMax: 0
     Sounds: []
   - ListName: Blacksmith
     mainMusic:
-      name: Ambient
+      name: BlacksmithAmbient
       clip: {fileID: 8300000, guid: 32fcbebcfb7540342916f58c5aa9db14, type: 3}
       volume: 0.1
       pitch: 1
       loop: 1
       playOnAwake: 0
+      fadeTimeModifier: 0.5
     playIntervalMin: 1
     playIntervalMax: 3
     Sounds:
     - name: blacksmith01
       clip: {fileID: 8300000, guid: c9878c18c78f2d94cbaf9a6ba3c16843, type: 3}
-      volume: 0.1
+      volume: 0.2
       pitch: 1
       loop: 0
       playOnAwake: 0
+      fadeTimeModifier: 0
     - name: blacksmith02
-      clip: {fileID: 8300000, guid: 57d8391f8f35fbd47af08b7c15b74f8b, type: 3}
-      volume: 0.1
-      pitch: 1
-      loop: 0
-      playOnAwake: 0
-    - name: blacksmith03
       clip: {fileID: 8300000, guid: 10f412e1a05a6f54c96e57718f524454, type: 3}
-      volume: 0.1
+      volume: 0.2
       pitch: 1
       loop: 0
       playOnAwake: 0
+      fadeTimeModifier: 0
     - name: blacksmith04
-      clip: {fileID: 8300000, guid: 2143af7a62f5d2b45b0933b65b731820, type: 3}
-      volume: 0.1
+      clip: {fileID: 8300000, guid: 342f3829121ba214cb89d2c657f6e859, type: 3}
+      volume: 0.2
       pitch: 1
       loop: 0
       playOnAwake: 0
-    - name: blacksmith05
-      clip: {fileID: 8300000, guid: cf8bc7d9c1c56b04888bbf3c15389def, type: 3}
-      volume: 0.1
-      pitch: 1
-      loop: 0
-      playOnAwake: 0
+      fadeTimeModifier: 0
 --- !u!1 &2104961245
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,11 +5597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5063078334403104706, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -734.99976
+      value: -735
       objectReference: {fileID: 0}
     - target: {fileID: 5063078334403104706, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59.94055
+      value: 59.94043
       objectReference: {fileID: 0}
     - target: {fileID: 5075139575445899649, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_Name

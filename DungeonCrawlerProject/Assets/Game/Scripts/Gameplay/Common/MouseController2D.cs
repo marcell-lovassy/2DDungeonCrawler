@@ -27,12 +27,11 @@ public class MouseController2D : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameManagerComponent.Instance.AudioManager.PlayEffect("LeftClick");
             RaycastMouseLeftClick(Input.mousePosition);
         }
         if (Input.GetMouseButtonDown(1)) 
         {
-            GameManagerComponent.Instance.AudioManager.PlayEffect("RightClick");
+            
             RaycastMouseLeftClick(Input.mousePosition, false);
         }
     }
@@ -44,7 +43,10 @@ public class MouseController2D : MonoBehaviour
 
         var uiHits = HitUI(mousePointerPosition);
 
-        if (uiHits.Count > 0) return;
+        if (uiHits.Count > 0)
+        {
+            return;
+        }
 
         if (hit)
         {
@@ -53,10 +55,12 @@ public class MouseController2D : MonoBehaviour
             {
                 if (select)
                 {
+                    GameManagerComponent.Instance.AudioManager.PlayEffect("LeftClick");
                     s.Select();
                 }
                 else
                 {
+                    GameManagerComponent.Instance.AudioManager.PlayEffect("RightClick");
                     s.Deselect();
                     ProCamera2DRooms roomsCam = cam.GetComponent<ProCamera2DRooms>();
                     if (roomsCam != null)

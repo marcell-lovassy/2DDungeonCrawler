@@ -382,12 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 808073a443ba9f14fbac0b1ca30e0a90, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    playOnAwake: 1
   - name: LeftClick
     clip: {fileID: 8300000, guid: 9ce1fb609670559469dfd0fea8e944bd, type: 3}
     volume: 0.35

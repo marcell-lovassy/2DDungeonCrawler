@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 
-namespace Assets.Game.GameManagement
+namespace Assets.Core.Audio
 {
     /// <summary>
     /// Audio Contrtoller for scenes
@@ -25,6 +25,8 @@ namespace Assets.Game.GameManagement
         public static SceneAudioController Instance;
         private List<Sound> allSoundsInScene;
 
+        Coroutine currentCoroutine;
+
         private void Awake()
         {
             // new SceneAudioContoller on every scene
@@ -33,7 +35,6 @@ namespace Assets.Game.GameManagement
 
             PlayTheme();
         }
-
 
         private void SetupSounds()
         {
@@ -66,15 +67,23 @@ namespace Assets.Game.GameManagement
         {
             foreach (var music in sounds)
             {
-                music.Play();
+                StopSoundCoroutine(music);
+                music.SetCoroutine(StartCoroutine(music.StartMusic()));
             }
+        }
+
+        public void StartMusic(Sound s)
+        {
+            StopSoundCoroutine(s);
+            s.SetCoroutine(StartCoroutine(s.StartMusic()));
         }
 
         private void PauseTheme()
         {
             foreach (var music in sounds)
             {
-                music.Pause();
+                StopSoundCoroutine(music);
+                music.SetCoroutine(StartCoroutine(music.PauseMusic()));
             }
         }
 
@@ -91,14 +100,23 @@ namespace Assets.Game.GameManagement
         public void PlayEffect(string name)
         {
             var sound = GetSound(name);
-            sound?.PlayEffect();
+            PlayEffect(sound);
+        }
+
+        public void PlayEffect(Sound sound)
+        {
+            if(sound != null)
+            {
+                sound?.PlayEffect();
+            }
         }
 
         public void StopAllMusic()
         {
             foreach (var sound in sounds)
             {
-                sound.Stop();
+                StopSoundCoroutine(sound);
+                sound.SetCoroutine(StartCoroutine(sound.StopMusic()));
             }
         }
 
@@ -107,7 +125,8 @@ namespace Assets.Game.GameManagement
             var sound = GetSound(name);
             if (sound != null && sound.IsPlaying())
             {
-                sound.Stop();
+                StopSoundCoroutine(sound);
+                sound.SetCoroutine(StartCoroutine(sound.StopMusic()));
             }
         }
 
@@ -116,10 +135,10 @@ namespace Assets.Game.GameManagement
             var sound = GetSound(name);
             if (sound != null && sound.IsPlaying())
             {
-                sound.Pause();
+                StopSoundCoroutine(sound);
+                sound.SetCoroutine(StartCoroutine(sound.PauseMusic()));
             }
         }
-
         public bool IsSoundPlaying(string name)
         {
             var s = allSoundsInScene.FirstOrDefault(s => s.GetSoundName() == name);
@@ -163,12 +182,31 @@ namespace Assets.Game.GameManagement
         public void PlayList(string listName)
         {
             PauseTheme();
-
             var list = soundLists.FirstOrDefault(sl => sl.ListName == listName);
             if(list != null)
             {
-                StartCoroutine(list.Play());
+                StartCoroutine(PlayList(list));
             }
+        }
+
+        private IEnumerator PlayList(SoundList list)
+        {
+            list.playing = true;
+            StartMusic(list.mainMusic);
+
+            if (list.Sounds.Count != 0)
+            {
+                while (list.playing)
+                {
+                    var wait = UnityEngine.Random.Range(list.playIntervalMin, list.playIntervalMax);
+                    var index = UnityEngine.Random.Range(0, list.Sounds.Count);
+                    PlayEffect(list.Sounds.ElementAt(index));
+
+                    yield return new WaitForSeconds(wait);
+                }
+            }
+
+            yield return null;
         }
 
         public void StopList(string listName)
@@ -177,6 +215,7 @@ namespace Assets.Game.GameManagement
             if (list != null)
             {
                 list.Stop();
+                StopMusic(list.mainMusic.GetSoundName());
             }
 
             PlayTheme();
@@ -188,10 +227,17 @@ namespace Assets.Game.GameManagement
             if (list != null)
             {
                 list.Pause();
+                PauseMusic(list.mainMusic.GetSoundName());
             }
-
             PlayTheme();
         }
 
+        private void StopSoundCoroutine(Sound s)
+        {
+            if(s.RunningCoroutine != null)
+            {
+                StopCoroutine(s.RunningCoroutine);
+            }
+        }
     }
 }

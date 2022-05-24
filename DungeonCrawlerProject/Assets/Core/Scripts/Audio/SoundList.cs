@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace Assets.Core.Audio
 {
+    /// <summary>
+    /// Soundlist is a class that can be used to create sound groups, to play them together 
+    /// </summary>
     [Serializable]
     public class SoundList
     {
@@ -18,44 +21,22 @@ namespace Assets.Core.Audio
 
         [Header("Sounds")]
         [SerializeField]
-        float playIntervalMin;
+        public float playIntervalMin;
         [SerializeField]
-        float playIntervalMax;
+        public float playIntervalMax;
         [SerializeField]
         public List<Sound> Sounds;
 
-        bool playing;
-
-        public System.Collections.IEnumerator Play()
-        {
-            playing = true;
-            mainMusic.Play();
-
-            if (Sounds.Count != 0)
-            {
-                while (playing)
-                {
-                    var wait = UnityEngine.Random.Range(playIntervalMin, playIntervalMax);
-                    var index = UnityEngine.Random.Range(0, Sounds.Count);
-                    Sounds.ElementAt(index).PlayEffect();
-                    yield return new WaitForSeconds(wait);
-                }
-            }
-            
-            yield return null;
-
-        }
+        public bool playing { get; set; }
 
         public void Pause()
         {
             playing = false;
-            mainMusic.Pause();
         }
 
         public void Stop()
         {
             playing = false;
-            mainMusic.Stop();
         }
     }
 }

@@ -34,15 +34,14 @@ namespace Assets.Game.Gameplay.Common
             if (IsSelected || selectionHandler.SelectionBlocked) return;
             base.Select();
             tower.EnterRoom(towerRoomIndex);
-            //SceneAudioController.Instance.PlayMusic(towerRoomName);
-            SceneAudioController.Instance.PlayList(towerRoomName);
+            SceneAudioController.Instance.PlaySoundList(towerRoomName);
         }
 
         public override void Deselect()
         {
+            if (!IsSelected) return;
             base.Deselect();
             tower.ExitRoom();
-            //SceneAudioController.Instance.PauseMusic(towerRoomName);
             SceneAudioController.Instance.PauseList(towerRoomName);
 
         }
@@ -57,6 +56,5 @@ namespace Assets.Game.Gameplay.Common
         {
             return towerRoomName; 
         }
-
     }
 }

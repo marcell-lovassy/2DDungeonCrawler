@@ -72,10 +72,10 @@ namespace Assets.Core.Audio
             }
         }
 
-        public void StartMusic(Sound s)
+        public void StartMusic(Sound sound)
         {
-            StopSoundCoroutine(s);
-            s.SetCoroutine(StartCoroutine(s.StartMusic()));
+            StopSoundCoroutine(sound);
+            sound.SetCoroutine(StartCoroutine(sound.StartMusic()));
         }
 
         private void PauseTheme()
@@ -162,45 +162,45 @@ namespace Assets.Core.Audio
             return s;
         }
 
-        private void AddSound(Sound s)
+        private void AddSound(Sound sound)
         {
-            if (!sounds.Contains(s))
+            if (!sounds.Contains(sound))
             {
-                s.SetupSound(gameObject.AddComponent<AudioSource>());
-                sounds.Add(s);
+                sound.SetupSound(gameObject.AddComponent<AudioSource>());
+                sounds.Add(sound);
             }
         }
 
-        private void RemoveSound(Sound s)
+        private void RemoveSound(Sound sound)
         {
-            if (sounds.Contains(s))
+            if (sounds.Contains(sound))
             {
-                sounds.Remove(s);
+                sounds.Remove(sound);
             }
         }
 
-        public void PlayList(string listName)
+        public void PlaySoundList(string listName)
         {
             PauseTheme();
             var list = soundLists.FirstOrDefault(sl => sl.ListName == listName);
             if(list != null)
             {
-                StartCoroutine(PlayList(list));
+                StartCoroutine(PlaySoundList(list));
             }
         }
 
-        private IEnumerator PlayList(SoundList list)
+        private IEnumerator PlaySoundList(SoundList soundList)
         {
-            list.playing = true;
-            StartMusic(list.mainMusic);
+            soundList.playing = true;
+            StartMusic(soundList.mainMusic);
 
-            if (list.Sounds.Count != 0)
+            if (soundList.Sounds.Count != 0)
             {
-                while (list.playing)
+                while (soundList.playing)
                 {
-                    var wait = UnityEngine.Random.Range(list.playIntervalMin, list.playIntervalMax);
-                    var index = UnityEngine.Random.Range(0, list.Sounds.Count);
-                    PlayEffect(list.Sounds.ElementAt(index));
+                    var wait = UnityEngine.Random.Range(soundList.playIntervalMin, soundList.playIntervalMax);
+                    var index = UnityEngine.Random.Range(0, soundList.Sounds.Count);
+                    PlayEffect(soundList.Sounds.ElementAt(index));
 
                     yield return new WaitForSeconds(wait);
                 }

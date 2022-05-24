@@ -29,17 +29,10 @@ namespace Assets.Core.Audio
         [Range(0.1f, 1f)]
         float fadeTimeModifier = 0.5f;
 
-
-        private AudioSource source;
-
         public bool IsStarted { get; private set; }
-
         public Coroutine RunningCoroutine { get; set; }
 
-        public void Play()
-        {
-            source.Play();
-        }
+        private AudioSource source;
 
         public System.Collections.IEnumerator StartMusic()
         {
@@ -81,6 +74,11 @@ namespace Assets.Core.Audio
                 yield return null;
             }
             source.Pause();
+        }
+
+        public void Play()
+        {
+            source.Play();
         }
 
         public void Stop()

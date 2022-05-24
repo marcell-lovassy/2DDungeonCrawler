@@ -34,7 +34,7 @@ namespace Assets.Game.Gameplay.Common
             if (IsSelected || selectionHandler.SelectionBlocked) return;
             base.Select();
             tower.EnterRoom(towerRoomIndex);
-            SceneAudioController.Instance.PlayList(towerRoomName);
+            SceneAudioController.Instance.PlaySoundList(towerRoomName);
         }
 
         public override void Deselect()

@@ -38,6 +38,8 @@ public class MouseController2D : MonoBehaviour
 
     void RaycastMouseLeftClick(Vector3 mousePointerPosition, bool select = true)
     {
+        Selectable selectable = null;
+
         Ray ray = cam.ScreenPointToRay(cam.ScreenToWorldPoint(mousePointerPosition));
         RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(mousePointerPosition), Vector2.zero);
 
@@ -50,35 +52,21 @@ public class MouseController2D : MonoBehaviour
 
         if (hit)
         {
-            Selectable s = null;
-            if ((s = hit.collider.gameObject.GetComponent<Selectable>()) != null)
+            if ((selectable = hit.collider.gameObject.GetComponent<Selectable>()) != null)
             {
                 if (select)
                 {
                     GameManagerComponent.Instance.AudioManager.PlayEffect("LeftClick");
-                    s.Select();
+                    selectable.Select();
                 }
                 else
                 {
                     GameManagerComponent.Instance.AudioManager.PlayEffect("RightClick");
-                    s.Deselect();
-                    ProCamera2DRooms roomsCam = cam.GetComponent<ProCamera2DRooms>();
-                    if (roomsCam != null)
-                    {
-                        roomsCam.EnterRoom(0);
-                    }
+                    selectable.Deselect();
                 }
             }
         }
-        else
-        {
-            selectionHandler.SelectionChanged(null);
-            ProCamera2DRooms roomsCam = cam.GetComponent<ProCamera2DRooms>();
-            if (roomsCam != null)
-            {
-                roomsCam.EnterRoom(0);
-            }
-        }
+        selectionHandler.SelectionChanged(selectable);
     }
 
     private List<RaycastResult> HitUI(Vector3 pointerPosition)

@@ -6,9 +6,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UniRx;
+using Zenject;
 
 public class TowerBaseComponent : MonoBehaviour
 {
+    [Inject]
+    SelectionHandler selectionHandler;
+
+
     [SerializeField]
     ProCamera2DRooms roomsCam;
 
@@ -37,6 +43,7 @@ public class TowerBaseComponent : MonoBehaviour
         FillFloorNavigation();
 
         camRoomCorrection = Mathf.Abs(towerLevels.Count - roomsCam.Rooms.Count);
+        selectionHandler.NoSelectionEvent.Subscribe(_ => EnterRoom("BaseRoom"));
     }
 
     public void EnterRoom(int room)
@@ -52,7 +59,7 @@ public class TowerBaseComponent : MonoBehaviour
 
     public void EnterRoom(string room)
     {
-        towerLevels.FirstOrDefault(t => t.GetName() == room).Select();
+        towerLevels.FirstOrDefault(t => t.GetName() == room)?.Select();
         roomsCam.EnterRoom(room);
     }
 

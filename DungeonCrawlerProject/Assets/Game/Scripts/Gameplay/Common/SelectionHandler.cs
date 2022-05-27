@@ -24,8 +24,11 @@ namespace Assets.Game.Gameplay.Common
             {
                 lastSelectedObject?.Deselect();
                 lastSelectedObject = selectable;
+            }
 
-                if(lastSelectedObject == null) NothingIsSelected();
+            if(lastSelectedObject == null || !lastSelectedObject.IsSelected)
+            {
+                NothingIsSelected();
             }
         }
 

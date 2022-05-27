@@ -19,6 +19,9 @@ namespace Assets.Game.Gameplay.Common
 
         TowerBaseComponent tower;
 
+        [SerializeField]
+        private bool isLocked;
+
         private void Start()
         {
             tower = GetComponentInParent<TowerBaseComponent>();
@@ -55,6 +58,16 @@ namespace Assets.Game.Gameplay.Common
         public string GetName()
         {
             return towerRoomName; 
+        }
+
+        public void Unlock()
+        {
+
+        }
+
+        public void Lock()
+        {
+
         }
     }
 }

@@ -26,12 +26,12 @@ namespace Assets.Game.UI
         public void OpenCharacterPanel(CharacterSelectionSlotComponent slot)
         {
             characterSelector.SetSlot(slot);
-            characterSelector.gameObject.SetActive(true);
+            characterSelector.Open();
         }
 
         public void CloseCharacterPanel() 
         {
-            characterSelector.gameObject.SetActive(false); 
+            characterSelector.Close(); 
         }
 
         

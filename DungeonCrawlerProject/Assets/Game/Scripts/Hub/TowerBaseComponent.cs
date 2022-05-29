@@ -66,20 +66,11 @@ public class TowerBaseComponent : MonoBehaviour
 
     private void FillFloorNavigation()
     {
-        content.sizeDelta = new Vector2 (content.sizeDelta.x, towerLevels.Count * (buttonPrefab.transform as RectTransform).rect.height);
-        FloorShortcutButton previousButton = null;
         foreach (var level in towerLevels)
         {
-            var button = Instantiate(buttonPrefab, content);
-            if(previousButton != null)
-            {
-                var t = button.transform as RectTransform;
-                var pt = previousButton.transform as RectTransform;
-                t.anchoredPosition += new Vector2(0, pt.anchoredPosition.y + pt.rect.height + 20); 
-            }
+            var button = Instantiate(buttonPrefab);
+            button.transform.SetParent(content, false);
             button.SetupButton(level.GetName(), action);
-
-            previousButton = button;
         }
       
     }

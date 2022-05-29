@@ -46,8 +46,6 @@ namespace Assets.Game.Hub
 
         public override void Open()
         {
-            var content = scrollViewContent.GetComponent<RectTransform>();
-            //content.sizeDelta = new Vector2(content.sizeDelta.x, hiredCharacters.Count * 100);
             ClearList();
             foreach (var item in hiredCharacters.GetHiredCharacters())
             {

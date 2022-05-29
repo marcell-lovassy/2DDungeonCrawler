@@ -4725,12 +4725,8 @@ PrefabInstance:
       value: 21.399902
       objectReference: {fileID: 0}
     - target: {fileID: 1524537590308186707, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 122.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524537590308186707, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1980168828242272827, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_TargetGraphic
@@ -4855,6 +4851,10 @@ PrefabInstance:
     - target: {fileID: 3888875508620378193, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_Name
       value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899256748142747810, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
+      propertyPath: m_Name
+      value: TowerLevelsScrollView
       objectReference: {fileID: 0}
     - target: {fileID: 4499985980442132721, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -5167,26 +5167,6 @@ PrefabInstance:
     - target: {fileID: 7923184293534720013, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926784462744245831, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 7926784462744245831, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_Color.a
-      value: 0.68235296
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926784462744245831, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926784462744245831, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926784462744245831, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8173162655184205810, guid: a9f67056d4096014996a5434bd5a0401, type: 3}
       propertyPath: m_AnchorMax.x

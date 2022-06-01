@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,25 +9,29 @@ namespace Assets.Game.Gameplay.Characters
 {
     public class SelectableCharacterSlotComponent : MonoBehaviour
     {
+        public delegate void GetCharacterData(CharacterData data);
+        public GetCharacterData SetCharacterDataCallback;
+        
         [SerializeField]
-        Image characterImage;
-
+        private Image characterImage;
         [SerializeField]
-        TMP_Text characterDisplayName;
-
+        private TMP_Text characterDisplayName;
         [SerializeField]
-        TMP_Text charcterClass;
-
+        private TMP_Text charcterClass;
         [SerializeField]
-        TMP_Text characterLevel;
+        private TMP_Text characterLevel;
+        [SerializeField]
+        Button selectCharacterButton;
+        [SerializeField]
+        private Image selectionIndicator;
 
         private CharacterData characterData;
 
-        Button selectCharacterButton;
 
         private void Awake()
         {
-            //selectCharacterButton.onClick.AddListener();
+            selectionIndicator.gameObject.SetActive(false);
+            selectCharacterButton.onClick.AddListener(() => SelectCharacter());
         }
 
         public void SetCharacterData(CharacterData data)
@@ -36,6 +41,19 @@ namespace Assets.Game.Gameplay.Characters
             characterDisplayName.text = characterData.characterName;
             charcterClass.text = characterData.characterClass.ToString();
             characterLevel.text = $"Level {characterData.level.ToString()}";
+        }
+
+        private void SelectCharacter()
+        {
+            SetCharacterDataCallback(characterData);
+            selectionIndicator.gameObject.SetActive(true);
+        }
+
+        internal bool RefreshSelection(string name)
+        {
+            var selected = name == null ? false : characterData.characterName == name;
+            selectionIndicator.gameObject.SetActive(selected);
+            return selected;
         }
     }
 }

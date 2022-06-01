@@ -11,30 +11,31 @@ namespace Assets.Game.Hub
 {
     public class CharacterSelectorComponent : ViewBaseComponent
     {
+        public override bool IsBlocking { get; set; } = false;
+
+
+        [Header("UI Setup")]
         [SerializeField]
         GameObject scrollViewContent;
-
         [SerializeField]
         Image[] slotIndicatorImages = new Image[4];
-
         [SerializeField]
         Sprite inactiveSlotSprite;
         [SerializeField]
         Sprite activeSlotSprite;
-
-        public override bool IsBlocking { get; set; } = false;
-
+        [SerializeField]
         [field: SerializeField]
         public override List<ViewBaseComponent> childViews { get; set; }
 
+
+        [Header("Game Setup")]
         [SerializeField]
         SelectableCharacterSlotComponent slotPrefab;
-
         [SerializeField]
         Characters hiredCharacters;
 
-        CharacterSelectionSlotComponent activeSlot;
 
+        CharacterSelectionSlotComponent activeSlot;
         private List<SelectableCharacterSlotComponent> selectables = new List<SelectableCharacterSlotComponent>();
 
         public void SetSlot(CharacterSelectionSlotComponent slot)
@@ -53,6 +54,9 @@ namespace Assets.Game.Hub
                 slot.SetCharacterData(item);
                 selectables.Add(slot);
                 slot.transform.SetParent(scrollViewContent.transform, false);
+                slot.SetCharacterDataCallback += GetCharacterDataFromSlot;
+                slot.RefreshSelection(activeSlot.GetSelected());
+                
             }
             base.Open();
         }
@@ -66,9 +70,10 @@ namespace Assets.Game.Hub
 
         private void ClearList()
         {
-            foreach (var item in selectables)
+            foreach (var slot in selectables)
             {
-                Destroy(item.gameObject);
+                slot.SetCharacterDataCallback -= GetCharacterDataFromSlot;
+                Destroy(slot.gameObject);
             }
             selectables.Clear();
         }
@@ -78,6 +83,15 @@ namespace Assets.Game.Hub
             foreach (var image in slotIndicatorImages)
             {
                 image.sprite = inactiveSlotSprite;
+            }
+        }
+
+        public void GetCharacterDataFromSlot(CharacterData data)
+        {
+            activeSlot.SetCharacter(data);
+            foreach (var slot in selectables)
+            {
+                slot.RefreshSelection(activeSlot.GetSelected());
             }
         }
 

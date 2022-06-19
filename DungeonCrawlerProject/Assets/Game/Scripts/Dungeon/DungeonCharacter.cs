@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Game.Gameplay.Characters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,28 @@ namespace Assets.Game.Dungeon
     public class DungeonCharacter : MonoBehaviour
     {
         [SerializeField]
-        string characterName;
+        CharacterData characterData;
+
+        [SerializeField]
+        private string characterName;
+        [SerializeField]
+        private int characterLevel;
+        [SerializeField]
+        private CharacterClass characterClass;
 
         //Animator characterAnimator;
 
         private void Awake()
         {
             //characterAnimator = GetComponent<Animator>();
+        }
+
+        public void SetData(CharacterData data)
+        {
+            characterData = data;
+            characterName = characterData.characterName;
+            characterLevel = characterData.level;
+            characterClass = characterData.characterClass;
         }
     }
 }

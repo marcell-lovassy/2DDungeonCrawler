@@ -852,6 +852,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1768010577653629135, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: maxSlotDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768010577653629135, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
+      propertyPath: minSlotDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1768010577824478359, guid: 219a6561874321147bc613f3c1d2e023, type: 3}
       propertyPath: m_IsActive
       value: 0

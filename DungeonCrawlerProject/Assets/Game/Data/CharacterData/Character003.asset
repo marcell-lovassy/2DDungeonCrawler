@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: Character003
   m_EditorClassIdentifier: 
   characterName: Third Character
-  characterId: 2
   characterClass: 0
   level: 1
-  stats:
-    maxHealth: 12
-    armor: 1
-    initiative: 40
   characterIcon: {fileID: 21300000, guid: 6c313154b24174e74a18a2c64be8e231, type: 3}
+  dungeonCharacterPrefab: {fileID: 8989758279721765278, guid: 44978d09286686a488d0229b38fecf3e, type: 3}

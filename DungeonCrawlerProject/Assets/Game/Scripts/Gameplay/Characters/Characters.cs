@@ -18,5 +18,10 @@ namespace Assets.Game.Gameplay.Characters
             return HiredCharacters;
         }
 
+        public IEnumerable<CharacterData> GetNonSelectedHiredCharacters()
+        {
+            return HiredCharacters;
+        }
+
     }
 }

@@ -1,3 +1,4 @@
+using Assets.Game.Dungeon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Assets.Game.Gameplay.Characters
         public int level;
         CharacterStats stats;
         public Sprite characterIcon;
+        public DungeonCharacter dungeonCharacterPrefab;
     }
 }
 

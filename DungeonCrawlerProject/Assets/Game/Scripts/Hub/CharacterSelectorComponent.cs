@@ -1,3 +1,4 @@
+using Assets.Game.GameManagement;
 using Assets.Game.Gameplay.Characters;
 using Assets.Game.UI;
 using System;
@@ -48,10 +49,15 @@ namespace Assets.Game.Hub
         public override void Open()
         {
             ClearList();
-            foreach (var item in hiredCharacters.GetHiredCharacters())
+            foreach (var availableCharacter in hiredCharacters.GetHiredCharacters())
             {
+                if (DungeonDataProviderComponent.Instance.IsCharacterSelected(availableCharacter) && activeSlot.CharacterInSlot != availableCharacter)
+                {
+                    continue;
+                }
+
                 var slot = Instantiate(slotPrefab);
-                slot.SetCharacterData(item);
+                slot.SetCharacterData(availableCharacter);
                 selectables.Add(slot);
                 slot.transform.SetParent(scrollViewContent.transform, false);
                 slot.SetCharacterDataCallback += GetCharacterDataFromSlot;

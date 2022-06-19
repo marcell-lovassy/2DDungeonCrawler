@@ -1,3 +1,4 @@
+using Assets.Game.GameManagement;
 using Assets.Game.Gameplay.Characters;
 using System;
 using System.Collections;
@@ -17,7 +18,7 @@ namespace Assets.Game.Hub
         [SerializeField]
         private Image plusIcon;
 
-        private CharacterData characterInSlot;
+        public CharacterData CharacterInSlot { get; private set; }
 
         private void Awake()
         {
@@ -27,15 +28,17 @@ namespace Assets.Game.Hub
 
         internal void SetCharacter(CharacterData data)
         {
-            characterInSlot = data;
+            CharacterInSlot = data;
             characterIcon.sprite = data.characterIcon;
             characterIcon.gameObject.SetActive(true);
             plusIcon.gameObject.SetActive(false);
+
+            DungeonDataProviderComponent.Instance.SetCharacterData(slotIndex - 1, CharacterInSlot);
         }
 
         public string GetSelected()
         {
-            return characterInSlot == null ? null : characterInSlot.characterName;
+            return CharacterInSlot == null ? null : CharacterInSlot.characterName;
         }
     }
 }

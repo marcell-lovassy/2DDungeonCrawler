@@ -17,10 +17,9 @@ namespace Assets.Game.UI
 
         Button dungeonStarterButton;
 
-        private void Start()
+        private void Awake()
         {
             dungeonStarterButton = GetComponent<Button>();
-
             dungeonStarterButton.onClick.AddListener(() => TryStartDungeon());
         }
 

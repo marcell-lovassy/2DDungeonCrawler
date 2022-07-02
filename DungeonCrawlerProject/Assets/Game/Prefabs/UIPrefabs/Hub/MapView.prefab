@@ -602,6 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3010117669136590018}
+  - component: {fileID: 5261681203340527466}
   m_Layer: 5
   m_Name: Maps
   m_TagString: Untagged
@@ -629,6 +630,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5261681203340527466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611837268789301101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44598a1bf106efd4f80845f758e1d8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamPanel: {fileID: 8580116118904289633}
 --- !u!1 &4930126096865277881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8163509162461685732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2232,29 +2246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48ab746be3e43a44a23d8faacad1a4d, type: 3}
---- !u!1 &8163509162198717470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6397359826786060120, guid: d48ab746be3e43a44a23d8faacad1a4d, type: 3}
-  m_PrefabInstance: {fileID: 2994155475549836102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8163509161675532915 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6397359826185320757, guid: d48ab746be3e43a44a23d8faacad1a4d, type: 3}
   m_PrefabInstance: {fileID: 2994155475549836102}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4195018448613133747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163509162198717470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a74a8d84937fa469f30df786c225d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dungeonName: DungeonBase
 --- !u!1001 &5673550911794452623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2469,3 +2465,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8696117385018142838, guid: bba506608bbe76f42a6c7acb4e481402, type: 3}
   m_PrefabInstance: {fileID: 5673550911794452623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8580116118904289633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4156314859891237358, guid: bba506608bbe76f42a6c7acb4e481402, type: 3}
+  m_PrefabInstance: {fileID: 5673550911794452623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dda122cb54f1e47a6b633835801f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

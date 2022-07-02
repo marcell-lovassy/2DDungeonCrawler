@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 8696117385018142838}
   - component: {fileID: 2145555907674621246}
   - component: {fileID: 1321972679205752027}
+  - component: {fileID: 4156314859891237358}
   m_Layer: 5
   m_Name: TeamPanel
   m_TagString: Untagged
@@ -357,6 +358,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4156314859891237358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950165185664145121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dda122cb54f1e47a6b633835801f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelectionSlotComponents:
+  - {fileID: 4639630268899007490}
+  - {fileID: 8671159965683948892}
+  - {fileID: 5993773455277567832}
+  - {fileID: 5211543472769478534}
 --- !u!1 &1555753570088537621
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using Assets.Game.Gameplay.Characters;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +11,17 @@ namespace Assets.Game.Hub
 {
     public class CharacterSelectionSlotComponent : MonoBehaviour
     {
+        public CharacterData CharacterInSlot { get; private set; }
+        public IObservable<Unit> SelectedCharacterCahnged => selectedCharacterCahnged;
+
         public int slotIndex;
 
         [SerializeField]
         private Image characterIcon;
-
         [SerializeField]
         private Image plusIcon;
 
-        public CharacterData CharacterInSlot { get; private set; }
+        private Subject<Unit> selectedCharacterCahnged = new Subject<Unit>();
 
         private void Awake()
         {
@@ -34,11 +37,17 @@ namespace Assets.Game.Hub
             plusIcon.gameObject.SetActive(false);
 
             DungeonDataProviderComponent.Instance.SetCharacterData(slotIndex - 1, CharacterInSlot);
+            selectedCharacterCahnged.OnNext(Unit.Default);
         }
 
         public string GetSelected()
         {
             return CharacterInSlot == null ? null : CharacterInSlot.characterName;
+        }
+
+        public bool IsSet()
+        {
+            return CharacterInSlot != null;
         }
     }
 }

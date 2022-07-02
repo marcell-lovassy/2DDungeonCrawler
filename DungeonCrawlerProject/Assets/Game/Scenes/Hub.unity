@@ -974,7 +974,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2565439397101588276, guid: c3c45f88fd483f4448d5886f98a0b6aa, type: 3}
       propertyPath: orthographic size
-      value: 20
+      value: 24.831614
       objectReference: {fileID: 0}
     - target: {fileID: 2565439397101588277, guid: c3c45f88fd483f4448d5886f98a0b6aa, type: 3}
       propertyPath: m_RootOrder
@@ -982,11 +982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2565439397101588277, guid: c3c45f88fd483f4448d5886f98a0b6aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.95
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2565439397101588277, guid: c3c45f88fd483f4448d5886f98a0b6aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.621399
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 2565439397101588277, guid: c3c45f88fd483f4448d5886f98a0b6aa, type: 3}
       propertyPath: m_LocalPosition.z

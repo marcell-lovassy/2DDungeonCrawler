@@ -21,7 +21,22 @@ namespace Assets.Game.UI
         {
             dungeonStarterButton = GetComponent<Button>();
 
-            dungeonStarterButton.onClick.AddListener(() => GameManagerComponent.Instance.LoadLevel(dungeonName));
+            dungeonStarterButton.onClick.AddListener(() => TryStartDungeon());
+        }
+
+        private void TryStartDungeon()
+        {
+            GameManagerComponent.Instance.LoadLevel(dungeonName);
+        }
+
+        private void ShowDungeonInfo()
+        {
+            
+        }
+
+        public void SetButton(bool active)
+        {
+            dungeonStarterButton.interactable = active;
         }
     }
 }
